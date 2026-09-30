@@ -1,48 +1,36 @@
 <?php
 
-function somar($n1, $n2) {
-    return $n1 + $n2;
-}
+class Calculadora {
+    public $numero1;
+    public $numero2;
 
-function subtrair($n1, $n2) {
-    return $n1 - $n2;
-}
-
-function multiplicar($n1, $n2) {
-    return $n1 * $n2;
-}
-
-function dividir($n1, $n2) {
-    return $n1 / $n2;
-}
-
-$numero1 = $_POST["numero1"];
-$numero2 = $_POST["numero2"];
-$operação = $_POST["operação"];
-
-if ($operação == "soma")
-    {
-        $resultado= somar ($numero1, $numero2);
+    public function __construct($num1, $num2) {
+        $this->numero1 = $num1;
+        $this->numero2 = $num2;
     }
 
-elseif ($operação == "subtração")
-    {
-        $resultado= subtrair($numero1, $numero2);
+    public function somar() {
+        return $this->numero1 + $this->numero2;
     }
 
-elseif ($operação == "multiplicação")
-    {
-        $resultado= multiplicar($numero1, $numero2);
+    public function subtrair() {
+        return $this->numero1 - $this->numero2;
     }
-    
 
-if ($numero2 == 0)
-    $resultado = "indefinido";
-else {
-    $resultado = dividir($numero1, $numero2);
+    public function multiplicar() {
+        return $this->numero1 * $this->numero2;
+    }
+
+    public function dividir() {
+        if ($this->numero2 == 0) {
+            return "operação invalida";
+        }
+        return $this->numero1 / $this->numero2;
+    }
+
+    public function mostrarResultado(){
+        echo "seu resultado é" .$resultado 
+    }
 }
-    
-    
-echo "O resultado da sua conta é: " .$resultado;
 
-?>
+    ?>
